@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 import "../scss/nav.scss";
 import Logo from "../assets/logo-color.png";
 
@@ -16,19 +17,23 @@ const Bar = () => {
           </Col>
           <Col>
             <Form inline>
-              <Row>
+              
                 <Col xs="auto">
                   <Form.Control
                     type="text"
                     placeholder="Search"
-                    className=" mr-sm-2"
+                    className=" mr-sm-2 search"
                   />
                 </Col>
-              </Row>
+              
             </Form>
           </Col>
 
-          <Col></Col>
+          <Col className="but">
+          <Button className="btn">
+            Contact us
+          </Button>
+          </Col>
         </Row>
       </Container>
     </div>
