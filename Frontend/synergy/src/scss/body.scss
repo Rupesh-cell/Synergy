@@ -1,0 +1,30 @@
+.bod {
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  .text-center {
+    h1{
+        font-size: 62px;
+        color: rgb(51, 144, 225);
+        font-weight: 800;
+
+    }
+    h5{
+        font-size: 40px;
+        font-weight:700;
+        color: rgb(225, 144, 51);
+
+    }
+    p{
+        font-size: 20px;
+    }
+    
+  }
+
+  .text-center1 {
+    img {
+      border-radius: 90px 90px 90px 90px;
+      width: 100%;
+    }
+  }
+}
