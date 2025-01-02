@@ -96,9 +96,7 @@ const Bar = () => {
                 </Navbar.Offcanvas>
               </Navbar>
             </Col>
-            <Col className="d-flex align-items-center">
-      
-            </Col>
+            <Col className="d-flex align-items-center"></Col>
           </Row>
         </Container>
       </div>

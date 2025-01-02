@@ -1,5 +1,5 @@
 .main {
-  background-color: #2979ff;
+  background-color:#2979ff;
   padding: 0;
 
   .contain {
@@ -9,7 +9,7 @@
       margin: auto;
       display: flex;
       justify-content: space-between;
-      background-color: #2979ff;
+      background-color:#2979ff;
 
       .im {
         flex: 0;
@@ -21,13 +21,13 @@
       }
 
       .search-cont {
-        flex: 0;
 
+        flex: 1;
         width: 100%;
 
         .search-container {
           margin: auto;
-          width: 600px;
+          width: 650px;
           max-width: 100%;
           display: flex;
           justify-content: space-between;
@@ -35,7 +35,7 @@
           .search {
             height: 40px;
             font-size: 18px;
-            font-weight: 600;
+            font-weight: 400;
             padding: 0 20px;
             border: none;
             margin: auto;
@@ -70,8 +70,8 @@
   }
 }
 .second-nav {
-  background-color: rgb(101, 184, 74);
-  height: 50px;
+  background-color: rgb(18, 184, 161);
+  height: 33px;
   width: 100%;
 
   .se {
@@ -82,9 +82,9 @@
     justify-content: space-between;
 
     .nav-link {
-      font-size: 16px;
-      font-weight: 400;
-      color: white;
+      font-size: 17px;
+      font-weight: 500;
+      color: rgb(255, 255, 255);
       padding: 0px;
     }
    
