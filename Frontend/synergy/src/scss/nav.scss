@@ -1,12 +1,14 @@
 .main {
   background-color:#2979ff;
   padding: 0;
+  height: 100%;
 
   .contain {
     padding: 0;
 
     .cont {
       margin: auto;
+      padding-top: 10px;
       display: flex;
       justify-content: space-between;
       background-color:#2979ff;
@@ -70,8 +72,8 @@
   }
 }
 .second-nav {
-  background-color: rgb(18, 184, 161);
-  height: 33px;
+  background-color:#2979ff;
+ 
   width: 100%;
 
   .se {
