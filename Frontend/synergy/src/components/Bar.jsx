@@ -1,106 +1,67 @@
-import React from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Login from "../assets/login.svg";
-import "../scss/nav.scss";
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { Navbar, Nav, Container, Offcanvas, Form } from "react-bootstrap";
 import Logo from "../assets/logo-color.png";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Offcanvas from "react-bootstrap/Offcanvas";
+import "../scss/nav.scss";
 
 const Bar = () => {
-  const expand = "sm";
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <>
-      <div className="main  align-items-center">
-        <Container className="contain">
-          <Row className="cont d-flex align-items-center">
-            <Col xs={12} sm={12} md={4} className="im">
-              <img
-                src={Logo}
-                className="img d-flex align-items-center"
-                alt="Logo"
-              />
-            </Col>
-            <Col xs={12} sm={12} md={4} className="order-md-3 login d-flex">
-              <img src={Login} alt="Login" />
-            </Col>
-            <Col
-              xs={12}
-              sm={12}
-              md={4}
-              className="order-md-2 d-flex align-items-center search-cont"
-            >
-              <Form inline className="search-container">
-                <Form.Control
-                  type="text"
-                  placeholder="Search"
-                  className="mr-sm-2 search"
-                />
-                <Button className="btn search-btn" type="submit">
-                  Search
-                </Button>
-              </Form>
-            </Col>
-          </Row>
-        </Container>
-      </div>
-      <div className="second-nav d-flex align-items-center">
+    <motion.div
+      className={`nav-wrapper ${scrolled ? "solid" : "transparent"}`}
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <Navbar expand="lg" sticky="top" className="main-nav">
         <Container>
-          <Row className="d-flex align-items-center">
-            <Col>
-              <Navbar expand={expand} className="se">
-                <Navbar.Toggle
-                  aria-controls={`offcanvasNavbar-expand-${expand}`}
-                />
-                <Navbar.Offcanvas
-                  id={`offcanvasNavbar-expand-${expand}`}
-                  aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
-                  placement="end"
-                >
-                  <Offcanvas.Header closeButton>
-                    <Offcanvas.Title
-                      id={`offcanvasNavbarLabel-expand-${expand}`}
-                    >
-                      Offcanvas
-                    </Offcanvas.Title>
-                  </Offcanvas.Header>
-                  <Offcanvas.Body>
-                    <Nav className="nav2">
-                      <Nav.Link href="#action1">Home</Nav.Link>
-                      <Nav.Link href="#action2">Services</Nav.Link>
-                      <NavDropdown
-                        title="Company Profile"
-                        id={`offcanvasNavbarDropdown-expand-${expand}`}
-                      >
-                        <NavDropdown.Item href="#action3">
-                          Action
-                        </NavDropdown.Item>
-                        <NavDropdown.Item href="#action4">
-                          Another action
-                        </NavDropdown.Item>
-                        <NavDropdown.Item href="#action5">
-                          Something else here
-                        </NavDropdown.Item>
-                      </NavDropdown>
-                      <Nav.Link href="#action6">Products</Nav.Link>
-                      <Nav.Link href="#action7">Certification</Nav.Link>
-                      <Nav.Link href="#action9">About Us</Nav.Link>
-                      <Nav.Link href="#action2">Contact Us</Nav.Link>
-                    </Nav>
-                  </Offcanvas.Body>
-                </Navbar.Offcanvas>
-              </Navbar>
-            </Col>
-            <Col className="d-flex align-items-center"></Col>
-          </Row>
+          {/* LOGO */}
+          <Navbar.Brand href="/home" className="brand-left">
+            <span className="logo-text">SYNERGY</span>
+          </Navbar.Brand>
+
+          {/* TOGGLER */}
+          <Navbar.Toggle aria-controls="main-offcanvas" />
+
+          {/* OFFCANVAS */}
+          <Navbar.Offcanvas id="main-offcanvas" placement="end">
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title>Menu</Offcanvas.Title>
+            </Offcanvas.Header>
+
+            <Offcanvas.Body>
+              {/* NAV LINKS */}
+              <Nav className="mx-auto nav-links navbar-nav">
+                <Nav.Link href="/home">Home</Nav.Link>
+                <Nav.Link href="/services">Services</Nav.Link>
+                <Nav.Link href="/products">Products</Nav.Link>
+                <Nav.Link href="/about">About Us</Nav.Link>
+                <Nav.Link href="/certifications">Certifications</Nav.Link>
+                <Nav.Link href="/contact">Contact</Nav.Link>
+              </Nav>
+
+              {/* SEARCH BOX */}
+              <Form className="search-box mt-3 mt-lg-0">
+                <div className="search-wrapper">
+                  <Form.Control
+                    type="search"
+                    placeholder="Search"
+                    className="search-input"
+                  />
+                </div>
+              </Form>
+            </Offcanvas.Body>
+          </Navbar.Offcanvas>
         </Container>
-      </div>
-    </>
+      </Navbar>
+    </motion.div>
   );
 };
 

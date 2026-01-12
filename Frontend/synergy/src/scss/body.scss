@@ -1,60 +1,107 @@
 .bod {
-  padding-top: 80px;
-  padding-bottom: 80px;
-  background-color:#2979ff;
-  
-
-  .text-center {
-    padding-top:80px;
-    h1 {
-      font-size: 62px;
-      color: rgb(255, 255, 255);
-      font-weight: 800;
-    }
-    .h1 {
-      color: rgb(255, 255, 255);
-    }
-
-    p {
-      font-size: 18px;
-      font-weight: 400;
-      padding-top: 10px;
-      padding-bottom: 20px;
-      color: white;
-    }
-  }
-
-  .text-center1 {
-    img {
-      border-radius: 22px;
-      width: 100%;
-      height: 100%;
-      margin-bottom: 43px;
-      
-    }
-    
-  }
-  .btn{
-    width: 160px;
-    height: 50px;
-    font-size: 16px;
-    background-color: rgb(225, 144, 51);
-
-  }
-  
-}
-.bod {
+  height: 100vh;
+  width: 100%;
+  position: relative;
   background-image: url("../assets/1.webp");
-  background-size: cover; /* Ensures the image covers the entire section */
-  background-position: center; /* Centers the image */
-  background-repeat: no-repeat; /* Avoids repeating the image */
-  height: 100vh; /* Sets the height to cover the full viewport */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   display: flex;
-  align-items: center; /* Centers content vertically */
-  justify-content: center; /* Centers content horizontally */
-  color: white; /* Adjusts text color for visibility over the background */
-  text-align: center; /* Centers the text */
-  padding: 20px;
-  opacity: 50% ; 
-  stroke-opacity: black; 
+  align-items: center;
+  justify-content: center;
+
+  color: #ffffff;
+  overflow: hidden;
+}
+
+/* Dark cinematic overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 10, 25, 0.55),
+    rgba(0, 10, 25, 0.85)
+  );
+  z-index: 1;
+}
+
+/* Ensure content above overlay */
+.bod .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Headings */
+.headline {
+  font-size: 1.2rem;
+  letter-spacing: 4px;
+  font-weight: 600;
+  color: #90e0ef;
+  margin-bottom: 0.5rem;
+}
+
+.brand {
+  font-size: 4rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  background: linear-gradient(135deg, #ffffff, #90e0ef);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+}
+
+/* Description */
+.subtitle {
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+  font-size: 1.05rem;
+  color: #e0f7ff;
+  line-height: 1.8;
+}
+
+/* CTA buttons */
+.cta {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, #00b4d8, #0077b6);
+  border: none;
+  padding: 0.75rem 2.2rem;
+  font-weight: 600;
+  border-radius: 50px;
+  box-shadow: 0 15px 40px rgba(0, 180, 216, 0.4);
+  transition: all 0.3s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 25px 60px rgba(0, 180, 216, 0.6);
+}
+
+.secondary-btn {
+  padding: 0.75rem 2.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.secondary-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .brand {
+    font-size: 2.8rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+  }
 }
