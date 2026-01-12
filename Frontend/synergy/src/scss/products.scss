@@ -42,15 +42,14 @@
 /* IMAGE */
 .image-wrapper {
   height: 220px;
-  background: #f1f5f9;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: fit;
 }
 
 .image-wrapper img {
-  max-height: 90%;
-  max-width: 90%;
+  max-height: 100%;
+  max-width: 100%;
   object-fit: contain;
 }
 
@@ -58,6 +57,7 @@
 .product-card .card-body {
   text-align: center;
   padding: 1.5rem;
+  background: #f1f5f9;
 }
 
 .product-card .card-title {
