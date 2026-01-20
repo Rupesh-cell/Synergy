@@ -10,3 +10,80 @@ body {
   margin-bottom: 2rem;
   color: #102a43;
 }
+/* EXISTING NAV STYLES (keep yours above this) */
+
+.navbar-search {
+  position: relative;
+  width: 260px;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+  color: inherit;
+  opacity: 0.6;
+}
+
+.search-input {
+  width: 100%;
+  padding: 9px 14px 9px 38px;
+  border-radius: 999px;
+  border: 1px solid #ced4da;
+  font-size: 0.9rem;
+}
+
+/* DROPDOWN */
+.search-dropdown {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  z-index: 9999;
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.search-item {
+  display: flex;
+  gap: 12px;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.search-item:hover {
+  background: #f1f7fc;
+}
+
+.search-item img {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #f8fbff;
+}
+
+.search-item h6 {
+  font-size: 0.85rem;
+  margin: 0;
+  font-weight: 700;
+  color: #003049;
+}
+
+.search-item p {
+  font-size: 0.75rem;
+  margin: 0;
+  color: #6c757d;
+}
+
+/* DARK TRANSPARENT NAV MODE */
+.nav-wrapper.transparent .search-dropdown {
+  background: #ffffff;
+}

@@ -11,6 +11,7 @@ const ContactInfoCard = ({ icon, title, desc }) => {
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
     >
+      
       <div className="contact-icon">{icon}</div>
       <div className="contact-text">
         <h5>{title}</h5>

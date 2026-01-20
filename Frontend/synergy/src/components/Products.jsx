@@ -1,87 +1,64 @@
-import React from "react";
-import { motion } from "framer-motion";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+import React, { useState } from "react";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import products from "../data/products";
 import "../scss/products.scss";
 
 const Products = () => {
-  const items = [
-    {
-      id: 1,
-      name: "Professional Diving Mask",
-      img: "https://www.tradeinn.com/f/14093/140933627/cressi-zs2-medium-diving-mask.webp",
-      price: "$45",
-    },
-    {
-      id: 2,
-      name: "High-Pressure Oxygen Tank",
-      img: "https://tse3.mm.bing.net/th/id/OIP.RA2y5OFMi0qNPk5p9i4AiwHaHa",
-      price: "$320",
-    },
-    {
-      id: 3,
-      name: "Carbon Fiber Diving Fins",
-      img: "https://tse1.mm.bing.net/th/id/OIP.4I0c5dpmW_nr72MwAh7wcAHaHm",
-      price: "$60",
-    },
-    {
-      id: 4,
-      name: "Industrial Wetsuit – 3mm",
-      img: "https://www.tradeinn.com/f/13883/138836503/cressi-tokugawa-back-zip-diving-wetsuit-3-mm.webp",
-      price: "$150",
-    },
-  ];
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 9;
+
+  const totalPages = Math.ceil(products.length / itemsPerPage);
+  const start = (currentPage - 1) * itemsPerPage;
+  const paginatedProducts = products.slice(start, start + itemsPerPage);
 
   return (
-    <section className="products-section">
-      <Container>
-        {/* PAGE HEADING */}
-        <motion.div
-          className="products-header"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-        >
-          <h2>Our Products</h2>
-          <p>
-            Engineered diving equipment designed for safety, durability, and
-            professional underwater operations.
-          </p>
-        </motion.div>
+    <>
 
-        {/* PRODUCTS GRID */}
-        <Row>
-          {items.map((item, index) => (
-            <Col sm={6} md={4} lg={3} key={item.id} className="mb-4">
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -8 }}
-              >
-                <Card className="product-card">
-                  <div className="image-wrapper">
-                    <Card.Img src={item.img} alt={item.name} />
-                  </div>
+      <section className="products-page">
+        <Container>
+          <h2 className="section-title text-center mb-4">Our Products</h2>
 
+          <Row>
+            {paginatedProducts.map((item) => (
+              <Col md={4} key={item.id} className="mb-4">
+                <Card className="product-card h-100">
+                  <Card.Img variant="top" src={item.images[0]} />
                   <Card.Body>
                     <Card.Title>{item.name}</Card.Title>
-                    <Card.Text className="price">{item.price}</Card.Text>
-                    <Button className="product-btn">
+                    <Card.Text>
+                      {item.description.slice(0, 80)}...
+                    </Card.Text>
+                    <Button
+                      as={Link}
+                      to={`/products/${item.id}`}
+                      className="w-100"
+                    >
                       View Details
                     </Button>
                   </Card.Body>
                 </Card>
-              </motion.div>
-            </Col>
-          ))}
-        </Row>
-      </Container>
-    </section>
+              </Col>
+            ))}
+          </Row>
+
+          {/* PAGINATION */}
+          <div className="pagination-wrapper">
+            {[...Array(totalPages)].map((_, i) => (
+              <button
+                key={i}
+                className={`page-btn ${currentPage === i + 1 ? "active" : ""}`}
+                onClick={() => setCurrentPage(i + 1)}
+              >
+                {i + 1}
+              </button>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+     
+    </>
   );
 };
 
