@@ -2,14 +2,17 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import services from "../data/services";
-import "../scss/services.scss";
+import rentals from "../data/rentals";
+import "../scss/rentals.scss";
+import Bar from "../components/Bar";
 
-const Services = () => {
+const Rentals = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="services-section">
+    <>
+    <Bar/>
+    <section className="rentals-section">
       <Container>
         <motion.h2
           className="section-title text-center"
@@ -18,30 +21,30 @@ const Services = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          Our Services
+          Rentals
         </motion.h2>
 
         <Row className="g-4 mt-2">
-          {services.map((service, index) => (
-            <Col lg={4} md={6} key={service.id}>
+          {rentals.map((item, index) => (
+            <Col lg={4} md={6} key={item.id}>
               <motion.div
-                className="service-card"
+                className="rental-card"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.03 }}
-                onClick={() => navigate(`/services/${service.id}`)}
+                onClick={() => navigate(`/rentals/${item.id}`)}
               >
                 <div
-                  className="service-bg"
-                  style={{ backgroundImage: `url(${service.image})` }}
+                  className="rental-bg"
+                  style={{ backgroundImage: `url(${item.image})` }}
                 />
-                <div className="service-overlay" />
-                <div className="service-content">
-                  <h4>{service.title}</h4>
-                  <p>{service.short}</p>
-                  <span className="service-link">Explore →</span>
+                <div className="rental-overlay" />
+                <div className="rental-content">
+                  <h4>{item.title}</h4>
+                  <p>{item.short}</p>
+                  <span className="rental-link">Explore →</span>
                 </div>
               </motion.div>
             </Col>
@@ -49,7 +52,8 @@ const Services = () => {
         </Row>
       </Container>
     </section>
+    </>
   );
 };
 
-export default Services;
+export default Rentals;

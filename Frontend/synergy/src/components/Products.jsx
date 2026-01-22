@@ -28,6 +28,11 @@ const Products = () => {
                     <Card.Title>{item.name}</Card.Title>
                     <Card.Text>
                       {item.description.slice(0, 80)}...
+                      
+                    </Card.Text>
+                   
+                    <Card.Text>
+                       <small className="sku">SKU: {item.sku}</small>
                     </Card.Text>
                     <Button
                       as={Link}

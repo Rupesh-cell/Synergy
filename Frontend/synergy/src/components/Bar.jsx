@@ -1,43 +1,102 @@
-import React, { useEffect, useState, useRef } from "react";
-import { Navbar, Nav, Container, Offcanvas } from "react-bootstrap";
-import { motion } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Logo from "../assets/logo-color.png";
+import Container from "react-bootstrap/Container";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
+import Spinner from "react-bootstrap/Spinner";
 import products from "../data/products";
 import "../scss/nav.scss";
 
 const Bar = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
-  const searchRef = useRef();
+  const [recent, setRecent] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(-1);
+  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const inputRef = useRef();
+  const containerRef = useRef();
 
+  // Load recent searches from localStorage
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const stored = JSON.parse(localStorage.getItem("recentSearches")) || [];
+    setRecent(stored);
   }, []);
 
-  useEffect(() => {
-    if (!query.trim()) {
+  const saveRecent = (term) => {
+    const updated = [term, ...recent.filter((r) => r !== term)].slice(0, 5);
+    setRecent(updated);
+    localStorage.setItem("recentSearches", JSON.stringify(updated));
+  };
+
+  const deleteRecent = (term) => {
+    const updated = recent.filter((r) => r !== term);
+    setRecent(updated);
+    localStorage.setItem("recentSearches", JSON.stringify(updated));
+  };
+
+  const highlight = (text) => {
+    if (!query) return text;
+    const regex = new RegExp(`(${query})`, "gi");
+    return text.replace(regex, "<mark>$1</mark>");
+  };
+
+  const handleSearch = (value) => {
+    setQuery(value);
+    setOpen(true);
+    setLoading(true);
+    setActiveIndex(-1);
+
+    if (!value.trim()) {
       setResults([]);
+      setLoading(false);
       return;
     }
 
-    const filtered = products
-      .filter((p) =>
-        p.name.toLowerCase().includes(query.toLowerCase())
-      )
-      .slice(0, 6);
+    setTimeout(() => {
+      const filtered = products.filter((p) =>
+        [p.name, p.sku, p.description].join(" ").toLowerCase().includes(value.toLowerCase())
+      );
+      setResults(filtered.slice(0, 6));
+      setLoading(false);
+    }, 200);
+  };
 
-    setResults(filtered);
-  }, [query]);
+  const handleSelect = (product) => {
+    saveRecent(product.name);
+    setQuery("");
+    setResults([]);
+    setOpen(false);
+    navigate(`/products/${product.id}`);
+  };
 
+  const handleKeyDown = (e) => {
+    if (!results.length && !recent.length) return;
+
+    if (e.key === "ArrowDown") {
+      setActiveIndex((prev) => (prev + 1) % (results.length || recent.length));
+    } else if (e.key === "ArrowUp") {
+      setActiveIndex((prev) =>
+        prev <= 0 ? (results.length || recent.length) - 1 : prev - 1
+      );
+    } else if (e.key === "Enter") {
+      if (activeIndex >= 0) {
+        if (query && results.length) handleSelect(results[activeIndex]);
+        else if (!query && recent.length) setQuery(recent[activeIndex]);
+      }
+    } else if (e.key === "Escape") {
+      setOpen(false);
+    }
+  };
+
+  // Click outside to close
   useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (searchRef.current && !searchRef.current.contains(e.target)) {
-        setResults([]);
+    const handleClickOutside = (event) => {
+      if (containerRef.current && !containerRef.current.contains(event.target)) {
+        setOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -45,70 +104,84 @@ const Bar = () => {
   }, []);
 
   return (
-    <motion.div
-      className={`nav-wrapper ${scrolled ? "solid" : "transparent"}`}
-      initial={{ opacity: 0, y: -15 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
-    >
-      <Navbar expand="lg" className="main-nav">
-        <Container>
-          {/* LOGO */}
-          <Navbar.Brand href="/" className="brand-left">
-            <h3 className="brand-logo">Synergy</h3>
-          </Navbar.Brand>
+    <Navbar expand="lg" fixed="top" className="main-navbar">
+      <Container ref={containerRef}>
+        <Navbar.Brand onClick={() => navigate("/")}>SYNERGY</Navbar.Brand>
+        <Navbar.Toggle />
+        <Navbar.Collapse>
+          <Nav className="mx-auto nav-links">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/products">Products</Nav.Link>
+            <Nav.Link href="/services">Services</Nav.Link>
+            <Nav.Link href="/rentals">Rentals</Nav.Link>
+            <Nav.Link href="/About">About</Nav.Link>
+            <Nav.Link href="/contact">Contact</Nav.Link>
+          </Nav>
 
-          <Navbar.Toggle />
+          {/* SEARCH */}
+          <div className={`search-box ${open ? "open" : ""}`}>
+            <InputGroup>
+              <Form.Control
+                ref={inputRef}
+                type="text"
+                placeholder="Search name or SKU..."
+                value={query}
+                onChange={(e) => handleSearch(e.target.value)}
+                onFocus={() => setOpen(true)}
+                onKeyDown={handleKeyDown}
+              />
+              <InputGroup.Text>
+                {loading ? <Spinner animation="border" size="sm" /> : <i className="bi bi-search"></i>}
+              </InputGroup.Text>
+            </InputGroup>
 
-          <Navbar.Offcanvas placement="end">
-            <Offcanvas.Header closeButton />
-            <Offcanvas.Body>
-              <Nav className="mx-auto nav-links">
-                <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="/services">Services</Nav.Link>
-                <Nav.Link href="/products">Products</Nav.Link>
-                <Nav.Link href="/about">About</Nav.Link>
-                <Nav.Link href="/certifications">Certifications</Nav.Link>
-                <Nav.Link href="/contact">Contact</Nav.Link>
-              </Nav>
-
-              {/* SEARCH */}
-              <div className="search-box" ref={searchRef}>
-                <input
-                  type="text"
-                  placeholder="Search products..."
-                  className="search-input"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                />
-
-                {results.length > 0 && (
-                  <div className="search-dropdown">
-                    {results.map((item) => (
-                      <div
-                        key={item.id}
-                        className="search-item"
-                        onClick={() => {
-                          navigate(`/products/${item.id}`);
-                          setQuery("");
-                          setResults([]);
-                        }}
-                      >
-                        <img src={item.images[0]} alt={item.name} />
-                        <div>
-                          <h6>{item.name}</h6>
-                          <p>{item.shortDesc}</p>
-                        </div>
+            {/* DROPDOWN */}
+            {open && (
+              <div className="search-dropdown">
+                {!query && recent.length > 0 && (
+                  <>
+                    <p className="dropdown-title">Recent Searches</p>
+                    {recent.map((term, i) => (
+                      <div key={i} className="search-item recent-item">
+                        <span onClick={() => setQuery(term)}>{term}</span>
+                        <i
+                          className="bi bi-x"
+                          onClick={() => deleteRecent(term)}
+                          style={{ marginLeft: "auto", cursor: "pointer" }}
+                        ></i>
                       </div>
                     ))}
-                  </div>
+                  </>
                 )}
+
+                {query && !loading && results.length === 0 && (
+                  <div className="search-item empty">No items found</div>
+                )}
+
+                {query &&
+                  results.map((item, index) => (
+                    <div
+                      key={item.id}
+                      className={`search-item ${index === activeIndex ? "active" : ""}`}
+                      onClick={() => handleSelect(item)}
+                      dangerouslySetInnerHTML={{
+                        __html: `
+                        <img src="${item.images[0]}" />
+                        <div>
+                          <h6>${highlight(item.name)}</h6>
+                          <small>SKU: ${highlight(item.sku)}</small>
+                          <p>${highlight(item.description.slice(0, 40))}...</p>
+                        </div>
+                      `,
+                      }}
+                    />
+                  ))}
               </div>
-            </Offcanvas.Body>
-          </Navbar.Offcanvas>
-        </Container>
-      </Navbar>
-    </motion.div>
+            )}
+          </div>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 

@@ -2,10 +2,10 @@ import React from "react";
 import PageTransition from "../components/PageTransition";
 import Bar from "../components/Bar";
 import Body from "../components/Body";
-import Products from "../components/Products";
+import FeaturedItems from "../components/FeaturedItems"; // <--- updated
 import Services from "../components/Services";
 import About from "../components/About";
-import Certifications from "../components/Certifications";
+import Rentals from "../pages/Rentals";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
@@ -14,10 +14,10 @@ const Home = () => {
     <PageTransition>
       <Bar />
       <Body />
-      <Products />
+      <FeaturedItems />
       <Services />
+      <Rentals />
       <About />
-      <Certifications />
       <Contact />
       <Footer />
     </PageTransition>

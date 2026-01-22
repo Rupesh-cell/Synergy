@@ -1,13 +1,15 @@
 const products = [
+  // Masks
   {
     id: 1,
     brand: "Cressi",
     category: "Masks",
     name: "Cressi Big Eyes Evolution Mask",
     price: "$59",
+    sku: "CR-MSK-001",
     datasheet: "/datasheets/cressi-big-eyes.pdf",
     description:
-      "The Cressi Big Eyes Evolution mask offers enhanced downward visibility with angled lenses and soft silicone skirt for superior comfort.",
+      "Enhanced downward visibility with angled lenses and soft silicone skirt for comfort.",
     specs: {
       Lens: "Tempered glass",
       Skirt: "Soft hypoallergenic silicone",
@@ -17,7 +19,6 @@ const products = [
     images: [
       "https://www.tradeinn.com/f/14093/140933606/cressi-big-eyes-evolution-diving-mask.webp",
       "https://www.tradeinn.com/f/14093/140933607/cressi-big-eyes-evolution-diving-mask.webp",
-      "https://www.tradeinn.com/f/14093/140933608/cressi-big-eyes-evolution-diving-mask.webp",
     ],
   },
   {
@@ -26,9 +27,10 @@ const products = [
     category: "Masks",
     name: "Cressi ZS2 Mask",
     price: "$45",
+    sku: "CR-MSK-002",
     datasheet: "/datasheets/cressi-zs2.pdf",
     description:
-      "Compact framed diving mask with crystal silicone skirt and tempered glass lenses designed for comfort and performance.",
+      "Compact framed diving mask with crystal silicone skirt and tempered glass lenses.",
     specs: {
       Lens: "Tempered glass",
       Frame: "Low-profile",
@@ -46,9 +48,10 @@ const products = [
     category: "Masks",
     name: "Cressi Calibro Mask",
     price: "$69",
+    sku: "CR-MSK-003",
     datasheet: "/datasheets/cressi-calibro.pdf",
     description:
-      "Advanced low-volume diving mask featuring integrated dual frame and matte finish to reduce reflections underwater.",
+      "Low-volume diving mask with integrated dual frame and matte finish to reduce reflections.",
     specs: {
       Lens: "Tempered glass",
       Frame: "Integrated",
@@ -60,15 +63,18 @@ const products = [
       "https://www.tradeinn.com/f/14093/140933641/cressi-calibro-diving-mask.webp",
     ],
   },
+
+  // Fins
   {
     id: 4,
     brand: "Cressi",
     category: "Fins",
     name: "Cressi Frog Plus Fins",
     price: "$99",
+    sku: "CR-FIN-001",
     datasheet: "/datasheets/cressi-frog-plus.pdf",
     description:
-      "High-performance fins with channel thrust technology delivering powerful propulsion with reduced leg fatigue.",
+      "High-performance fins with channel thrust technology delivering powerful propulsion.",
     specs: {
       Blade: "Polypropylene",
       FootPocket: "Soft rubber",
@@ -86,9 +92,10 @@ const products = [
     category: "Fins",
     name: "Cressi Reaction Pro Fins",
     price: "$119",
+    sku: "CR-FIN-002",
     datasheet: "/datasheets/cressi-reaction-pro.pdf",
     description:
-      "Professional fins offering powerful thrust and excellent control for both recreational and technical divers.",
+      "Professional fins offering powerful thrust and excellent control for recreational and technical divers.",
     specs: {
       Blade: "High-flex polymer",
       Type: "Open heel",
@@ -106,9 +113,10 @@ const products = [
     category: "Fins",
     name: "Cressi Pro Light Fins",
     price: "$79",
+    sku: "CR-FIN-003",
     datasheet: "/datasheets/cressi-pro-light.pdf",
     description:
-      "Lightweight and responsive fins perfect for travel divers requiring speed, comfort, and maneuverability.",
+      "Lightweight fins perfect for travel divers requiring speed, comfort, and maneuverability.",
     specs: {
       Blade: "Lightweight polymer",
       Type: "Open heel",
@@ -120,15 +128,18 @@ const products = [
       "https://www.tradeinn.com/f/14093/140933673/cressi-pro-light-diving-fins.webp",
     ],
   },
+
+  // Regulators
   {
     id: 7,
     brand: "Cressi",
     category: "Regulators",
     name: "Cressi MC9 SC Regulator",
     price: "$349",
+    sku: "CR-REG-001",
     datasheet: "/datasheets/cressi-mc9-sc.pdf",
     description:
-      "Balanced diaphragm first stage with cold-water protection and smooth air delivery at any depth.",
+      "Balanced diaphragm first stage with cold-water protection and smooth air delivery.",
     specs: {
       FirstStage: "Balanced diaphragm",
       Ports: "4 LP / 2 HP",
@@ -146,6 +157,7 @@ const products = [
     category: "Regulators",
     name: "Cressi AC2 Compact Regulator",
     price: "$299",
+    sku: "CR-REG-002",
     datasheet: "/datasheets/cressi-ac2-compact.pdf",
     description:
       "Compact piston regulator offering reliability, simplicity, and excellent breathing performance.",
@@ -166,9 +178,10 @@ const products = [
     category: "Regulators",
     name: "Cressi T10-SC Regulator",
     price: "$379",
+    sku: "CR-REG-003",
     datasheet: "/datasheets/cressi-t10-sc.pdf",
     description:
-      "Lightweight travel regulator with cold-water performance and compact design for easy packing.",
+      "Lightweight travel regulator with cold-water performance and compact design.",
     specs: {
       FirstStage: "Balanced diaphragm",
       Weight: "740g",
@@ -180,12 +193,15 @@ const products = [
       "https://www.tradeinn.com/f/14093/140933693/cressi-t10-sc-diving-regulator.webp",
     ],
   },
+
+  // BCDs
   {
     id: 10,
     brand: "Cressi",
     category: "BCDs",
     name: "Cressi Patrol BCD",
     price: "$399",
+    sku: "CR-BCD-001",
     datasheet: "/datasheets/cressi-patrol-bcd.pdf",
     description:
       "Travel-friendly back-inflation BCD with lightweight materials and excellent trim underwater.",
@@ -206,6 +222,7 @@ const products = [
     category: "BCDs",
     name: "Cressi Start Pro BCD",
     price: "$329",
+    sku: "CR-BCD-002",
     datasheet: "/datasheets/cressi-start-pro.pdf",
     description:
       "Durable jacket-style BCD ideal for dive centers and training programs.",
@@ -226,6 +243,7 @@ const products = [
     category: "BCDs",
     name: "Cressi Travelight BCD",
     price: "$429",
+    sku: "CR-BCD-003",
     datasheet: "/datasheets/cressi-travelight.pdf",
     description:
       "Ultra-lightweight BCD designed for divers who travel frequently without sacrificing performance.",
@@ -240,12 +258,15 @@ const products = [
       "https://www.tradeinn.com/f/14093/140933713/cressi-travelight-bcd.webp",
     ],
   },
+
+  // Computers
   {
     id: 13,
     brand: "Cressi",
     category: "Computers",
     name: "Cressi Leonardo Dive Computer",
     price: "$199",
+    sku: "CR-COM-001",
     datasheet: "/datasheets/cressi-leonardo.pdf",
     description:
       "Single-button intuitive dive computer for recreational divers with Nitrox capability.",
@@ -266,6 +287,7 @@ const products = [
     category: "Computers",
     name: "Cressi Giotto Dive Computer",
     price: "$249",
+    sku: "CR-COM-002",
     datasheet: "/datasheets/cressi-giotto.pdf",
     description:
       "Large-screen dive computer with multi-gas capability and intuitive navigation.",
@@ -280,171 +302,16 @@ const products = [
       "https://www.tradeinn.com/f/14093/140933725/cressi-giotto-dive-computer.webp",
     ],
   },
-  {
-    id: 15,
-    brand: "Cressi",
-    category: "Computers",
-    name: "Cressi Goa Dive Computer",
-    price: "$229",
-    datasheet: "/datasheets/cressi-goa.pdf",
-    description:
-      "Slim wrist-style dive computer with modern design and full Nitrox functionality.",
-    specs: {
-      Display: "High contrast",
-      Gas: "Air / Nitrox",
-      Profile: "Slim",
-      Certification: "CE Approved",
-    },
-    images: [
-      "https://www.tradeinn.com/f/14093/140933728/cressi-goa-dive-computer.webp",
-      "https://www.tradeinn.com/f/14093/140933729/cressi-goa-dive-computer.webp",
-    ],
-  },
-  {
-    id: 16,
-    brand: "Cressi",
-    category: "Wetsuits",
-    name: "Cressi Morea 3mm Wetsuit",
-    price: "$169",
-    datasheet: "/datasheets/cressi-morea-3mm.pdf",
-    description:
-      "Comfortable and flexible wetsuit for warm-water diving and snorkeling.",
-    specs: {
-      Thickness: "3mm",
-      Material: "Neoprene",
-      Zip: "Back zip",
-      Certification: "CE Approved",
-    },
-    images: [
-      "https://www.tradeinn.com/f/14093/140933740/cressi-morea-3mm-wetsuit.webp",
-      "https://www.tradeinn.com/f/14093/140933741/cressi-morea-3mm-wetsuit.webp",
-    ],
-  },
-  {
-    id: 17,
-    brand: "Cressi",
-    category: "Wetsuits",
-    name: "Cressi Fast 5mm Wetsuit",
-    price: "$219",
-    datasheet: "/datasheets/cressi-fast-5mm.pdf",
-    description:
-      "Thermal protection wetsuit for moderate water temperatures with ergonomic cut.",
-    specs: {
-      Thickness: "5mm",
-      Material: "Neoprene",
-      Zip: "Back zip",
-      Certification: "CE Approved",
-    },
-    images: [
-      "https://www.tradeinn.com/f/14093/140933744/cressi-fast-5mm-wetsuit.webp",
-      "https://www.tradeinn.com/f/14093/140933745/cressi-fast-5mm-wetsuit.webp",
-    ],
-  },
-  {
-    id: 18,
-    brand: "Cressi",
-    category: "Wetsuits",
-    name: "Cressi Castoro 7mm Wetsuit",
-    price: "$279",
-    datasheet: "/datasheets/cressi-castoro-7mm.pdf",
-    description:
-      "Cold-water wetsuit providing excellent insulation and durability.",
-    specs: {
-      Thickness: "7mm",
-      Material: "Neoprene",
-      Zip: "Back zip",
-      Certification: "CE Approved",
-    },
-    images: [
-      "https://www.tradeinn.com/f/14093/140933748/cressi-castoro-7mm-wetsuit.webp",
-      "https://www.tradeinn.com/f/14093/140933749/cressi-castoro-7mm-wetsuit.webp",
-    ],
-  },
-  {
-    id: 19,
-    brand: "Cressi",
-    category: "Snorkels",
-    name: "Cressi Dry Snorkel",
-    price: "$39",
-    datasheet: "/datasheets/cressi-dry-snorkel.pdf",
-    description:
-      "Dry-top snorkel with splash guard and purge valve for easy breathing.",
-    specs: {
-      Valve: "Dry top",
-      Mouthpiece: "Silicone",
-      Length: "Standard",
-      Certification: "CE Approved",
-    },
-    images: [
-      "https://www.tradeinn.com/f/14093/140933756/cressi-dry-snorkel.webp",
-      "https://www.tradeinn.com/f/14093/140933757/cressi-dry-snorkel.webp",
-    ],
-  },
-  {
-    id: 20,
-    brand: "Cressi",
-    category: "Snorkels",
-    name: "Cressi Alpha Ultra Dry Snorkel",
-    price: "$45",
-    datasheet: "/datasheets/cressi-alpha-ultra-dry.pdf",
-    description:
-      "Ultra-dry snorkel with advanced float valve preventing water entry.",
-    specs: {
-      Valve: "Ultra-dry",
-      Mouthpiece: "Ergonomic silicone",
-      FlexTube: "Yes",
-      Certification: "CE Approved",
-    },
-    images: [
-      "https://www.tradeinn.com/f/14093/140933760/cressi-alpha-ultra-dry-snorkel.webp",
-      "https://www.tradeinn.com/f/14093/140933761/cressi-alpha-ultra-dry-snorkel.webp",
-    ],
-  },
-  {
-    id: 21,
-    brand: "Cressi",
-    category: "Snorkels",
-    name: "Cressi Corsica Freediving Snorkel",
-    price: "$29",
-    datasheet: "/datasheets/cressi-corsica.pdf",
-    description:
-      "Flexible freediving snorkel designed to contour to the face during descents.",
-    specs: {
-      Tube: "Flexible polymer",
-      Mouthpiece: "Hypoallergenic silicone",
-      Type: "Freediving",
-      Certification: "CE Approved",
-    },
-    images: [
-      "https://www.tradeinn.com/f/14093/140933764/cressi-corsica-freediving-snorkel.webp",
-      "https://www.tradeinn.com/f/14093/140933765/cressi-corsica-freediving-snorkel.webp",
-    ],
-  },
-  {
-    id: 22,
-    brand: "Cressi",
-    category: "Accessories",
-    name: "Cressi Anti-Fog Spray",
-    price: "$12",
-    datasheet: "/datasheets/cressi-antifog.pdf",
-    description:
-      "Long-lasting anti-fog spray keeping your mask crystal clear underwater.",
-    specs: {
-      Volume: "60ml",
-      Application: "Spray",
-      Usage: "Mask lenses",
-      Certification: "CE Approved",
-    },
-    images: [
-      "https://www.tradeinn.com/f/14093/140933770/cressi-antifog-spray.webp",
-    ],
-  },
+
+  // Accessories / Featured items
   {
     id: 23,
     brand: "Cressi",
     category: "Accessories",
+    featured: true,
     name: "Cressi Mask Strap Cover",
     price: "$15",
+    sku: "CR-ACC-001",
     datasheet: "/datasheets/cressi-mask-strap-cover.pdf",
     description:
       "Neoprene mask strap cover improving comfort and preventing hair pulling.",
@@ -462,8 +329,10 @@ const products = [
     id: 24,
     brand: "Cressi",
     category: "Accessories",
+    featured: true,
     name: "Cressi Mesh Gear Bag",
     price: "$59",
+    sku: "CR-ACC-002",
     datasheet: "/datasheets/cressi-mesh-bag.pdf",
     description:
       "Breathable mesh gear bag ideal for transporting wet diving equipment.",
@@ -481,8 +350,10 @@ const products = [
     id: 25,
     brand: "Cressi",
     category: "Accessories",
+    featured: true,
     name: "Cressi Console 2 Pressure Gauge",
     price: "$89",
+    sku: "CR-ACC-003",
     datasheet: "/datasheets/cressi-console-2.pdf",
     description:
       "Dual-console pressure gauge with depth indicator and luminous dial.",
@@ -496,12 +367,16 @@ const products = [
       "https://www.tradeinn.com/f/14093/140933778/cressi-console-2-pressure-gauge.webp",
     ],
   },
+
+  // Lights
   {
     id: 26,
     brand: "Cressi",
     category: "Lights",
+    featured: true,
     name: "Cressi Lumia Dive Torch",
     price: "$129",
+    sku: "CR-LGT-001",
     datasheet: "/datasheets/cressi-lumia.pdf",
     description:
       "Compact LED dive torch delivering powerful illumination for night dives.",
@@ -519,8 +394,10 @@ const products = [
     id: 27,
     brand: "Cressi",
     category: "Lights",
+    featured: true,
     name: "Cressi Astra 1200 Dive Torch",
     price: "$149",
+    sku: "CR-LGT-002",
     datasheet: "/datasheets/cressi-astra-1200.pdf",
     description:
       "High-power LED dive light suitable for deep and technical dives.",
@@ -538,8 +415,10 @@ const products = [
     id: 28,
     brand: "Cressi",
     category: "Lights",
+    featured: true,
     name: "Cressi Vega Rechargeable Torch",
     price: "$169",
+    sku: "CR-LGT-003",
     datasheet: "/datasheets/cressi-vega.pdf",
     description:
       "Rechargeable aluminum dive torch with wide beam and long battery life.",
@@ -553,12 +432,16 @@ const products = [
       "https://www.tradeinn.com/f/14093/140933786/cressi-vega-rechargeable-dive-torch.webp",
     ],
   },
+
+  // Bags
   {
     id: 29,
     brand: "Cressi",
     category: "Bags",
+    featured: true,
     name: "Cressi Gorilla Pro XL Bag",
     price: "$139",
+    sku: "CR-BAG-001",
     datasheet: "/datasheets/cressi-gorilla-pro-xl.pdf",
     description:
       "Heavy-duty wheeled dive bag with massive storage capacity and rugged construction.",
@@ -576,8 +459,10 @@ const products = [
     id: 30,
     brand: "Cressi",
     category: "Bags",
+    featured: true,
     name: "Cressi Moby 5 Trolley Bag",
     price: "$169",
+    sku: "CR-BAG-002",
     datasheet: "/datasheets/cressi-moby-5.pdf",
     description:
       "Large roller dive bag designed to carry full dive kit with ease and durability.",

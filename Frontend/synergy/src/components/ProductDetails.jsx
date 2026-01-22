@@ -10,7 +10,6 @@ import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-
 import Bar from "../components/Bar";
 import Footer from "../components/Footer";
 import products from "../data/products";
@@ -108,8 +107,10 @@ const ProductDetails = () => {
               <div className="product-info">
                 <span className="brand-badge">{product.brand}</span>
                 <h2>{product.name}</h2>
+                <small className="sku">SKU: {product.sku}</small>
                 <h4 className="price">{product.price}</h4>
                 <p className="description">{product.description}</p>
+                
 
                 <div className="action-buttons">
                   <Button
@@ -160,6 +161,8 @@ const ProductDetails = () => {
                     <img src={item.images[0]} alt={item.name} />
                     <h6>{item.name}</h6>
                     <p>{item.price}</p>
+                    <small className="sku">SKU: {item.sku}</small>
+                    
                   </div>
                 </Col>
               ))}
