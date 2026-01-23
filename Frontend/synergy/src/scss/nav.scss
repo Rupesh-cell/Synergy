@@ -1,8 +1,16 @@
 .main-navbar {
- background: linear-gradient(135deg, #003049, #0077b6);
+  background: linear-gradient(135deg, #003049, #0077b6);
   padding: 0.7rem 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
+.main-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999 !important;
+  touch-action: manipulation;
+}
+
 
 .main-navbar .navbar-brand {
   font-weight: 800;
@@ -11,8 +19,10 @@
   cursor: pointer;
 }
 
+
+
 .nav-links .nav-link {
-  color: #fff !important; // consistent with navbar
+  color: #fff !important; /* consistent with navbar */
   font-weight: 500;
   margin: 0 0.7rem;
   transition: 0.2s;
@@ -33,15 +43,17 @@
   padding-left: 1rem;
   border: none;
   font-size: 0.85rem;
-  background: #fff; // ensure white background
+  background: #fff;
 }
 
 .search-box .input-group-text {
   background: wheat;
   border: none;
-  color: #0077b6; // icon color same as primary
+  color: #0077b6;
   font-size: 1rem;
-  padding-right: 8px;
+  padding: 0.25rem 8px; /* vertical center */
+  display: flex;
+  align-items: center;
 }
 
 /* DROPDOWN */
@@ -84,7 +96,7 @@
   cursor: pointer;
   transition: background 0.2s ease;
   align-items: center;
-  font-size: 0.8rem; // smaller card
+  font-size: 0.8rem;
 }
 
 .search-item:hover,
@@ -153,6 +165,7 @@ mark {
     overflow-y: auto;
     padding: 1rem;
     background: #fff;
+    z-index: 9999; /* ensure above all */
   }
 
   .search-item {
@@ -163,5 +176,15 @@ mark {
   .search-item img {
     width: 40px;
     height: 40px;
+  }
+
+  /* smooth scroll for mobile search */
+  .search-dropdown::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .search-dropdown::-webkit-scrollbar-thumb {
+    background: rgba(0, 123, 255, 0.5);
+    border-radius: 3px;
   }
 }

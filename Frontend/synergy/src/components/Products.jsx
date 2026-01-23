@@ -21,7 +21,7 @@ const Products = () => {
 
           <Row>
             {paginatedProducts.map((item) => (
-              <Col md={4} key={item.id} className="mb-4">
+              <Col md={3} key={item.id} className="mb-4">
                 <Card className="product-card h-100">
                   <Card.Img variant="top" src={item.images[0]} />
                   <Card.Body>

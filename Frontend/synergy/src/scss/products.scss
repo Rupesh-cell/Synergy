@@ -1,7 +1,7 @@
 .products-page {
   padding: 4rem 0;
-  background: linear-gradient(180deg, #f6f9fc 0%, #ffffff 100%);
-}
+  background: white}
+
 
 .section-title {
   font-size: 2.2rem;
@@ -13,7 +13,7 @@
   border: none;
   border-radius: 16px;
   overflow: hidden;
-  background: #fff;
+  background: #ffffff;
   box-shadow: 0 10px 25px rgba(11, 37, 69, 0.08);
   transition: all 0.3s ease;
   height: 100%;
@@ -26,40 +26,47 @@
 
 .product-card img {
   height: 240px;
-  object-fit: contain;
+  object-fit:contain;
   padding: 1.2rem;
-  background: #f8fbff;
+  background: #ffffff;
 }
 
 .product-card .card-body {
   padding: 1.3rem;
   text-align: center;
+  background:#f8fbff;
+  opacity:0.9;
 }
 
 .product-card .card-title {
   font-size: 1.15rem;
   font-weight: 600;
-  color: #0b2545;
+  color: #000000;
+  
 }
 
 .product-card .card-text {
   font-size: 0.9rem;
-  color: #6c7a89;
+  color: #000000;
   margin: 0.6rem 0 1rem;
+  
 }
 
 .product-card .btn {
-  background: linear-gradient(135deg, #0077b6, #00b4d8);
+  background:linear-gradient(135deg, #005f8f, #0096c7);
   border: none;
   border-radius: 8px;
   padding: 0.55rem 1.2rem;
   font-weight: 600;
   transition: 0.25s ease;
+  color: rgb(255, 255, 255);
+  opacity: 0.9;
 }
 
 .product-card .btn:hover {
   background: linear-gradient(135deg, #005f8f, #0096c7);
   transform: translateY(-1px);
+   opacity: 1;
 }
 
 /* PAGINATION */

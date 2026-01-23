@@ -33,11 +33,13 @@ const Services = () => {
                 whileHover={{ scale: 1.03 }}
                 onClick={() => navigate(`/services/${service.id}`)}
               >
-                <div
-                  className="service-bg"
-                  style={{ backgroundImage: `url(${service.image})` }}
+                {/* Replace background div with an actual image */}
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="service-card-img"
                 />
-                <div className="service-overlay" />
+
                 <div className="service-content">
                   <h4>{service.title}</h4>
                   <p>{service.short}</p>

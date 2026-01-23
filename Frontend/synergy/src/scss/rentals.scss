@@ -12,7 +12,7 @@
 
 .rental-card {
   position: relative;
-  height: 280px;
+  height: 380px;
   border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
@@ -34,17 +34,15 @@
   .rental-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      180deg,
-      rgba(0, 25, 45, 0.15),
-      rgba(0, 20, 40, 0.85)
-    );
+   
   }
 
   .rental-content {
     position: absolute;
     bottom: 0;
-    padding: 1.5rem;
+    padding: 1rem;
+    height: 130px;
+    background-color: #0096c7;
     color: #fff;
     z-index: 2;
 

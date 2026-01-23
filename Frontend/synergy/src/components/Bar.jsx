@@ -16,11 +16,13 @@ const Bar = () => {
   const [loading, setLoading] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
   const [open, setOpen] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+
   const navigate = useNavigate();
   const inputRef = useRef();
   const containerRef = useRef();
 
-  // Load recent searches from localStorage
+  // Load recent searches
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("recentSearches")) || [];
     setRecent(stored);
@@ -39,7 +41,7 @@ const Bar = () => {
   };
 
   const highlight = (text) => {
-    if (!query) return text;
+    if (!query || !text) return text || "";
     const regex = new RegExp(`(${query})`, "gi");
     return text.replace(regex, "<mark>$1</mark>");
   };
@@ -58,7 +60,10 @@ const Bar = () => {
 
     setTimeout(() => {
       const filtered = products.filter((p) =>
-        [p.name, p.sku, p.description].join(" ").toLowerCase().includes(value.toLowerCase())
+        [p.name, p.sku, p.description]
+          .join(" ")
+          .toLowerCase()
+          .includes(value.toLowerCase())
       );
       setResults(filtered.slice(0, 6));
       setLoading(false);
@@ -70,6 +75,7 @@ const Bar = () => {
     setQuery("");
     setResults([]);
     setOpen(false);
+    setExpanded(false);
     navigate(`/products/${product.id}`);
   };
 
@@ -92,7 +98,7 @@ const Bar = () => {
     }
   };
 
-  // Click outside to close
+  // Click outside close
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (containerRef.current && !containerRef.current.contains(event.target)) {
@@ -104,18 +110,40 @@ const Bar = () => {
   }, []);
 
   return (
-    <Navbar expand="lg" fixed="top" className="main-navbar">
+    <Navbar
+      expand="lg"
+      fixed="top"
+      className="main-navbar"
+      expanded={expanded}
+      collapseOnSelect
+    >
       <Container ref={containerRef}>
-        <Navbar.Brand onClick={() => navigate("/")}>SYNERGY</Navbar.Brand>
-        <Navbar.Toggle />
-        <Navbar.Collapse>
+        <Navbar.Brand onClick={() => { navigate("/"); setExpanded(false); }}>
+          SYNERGY
+        </Navbar.Brand>
+
+        <Navbar.Toggle onClick={() => setExpanded(!expanded)} />
+
+        <Navbar.Collapse id="navbar-nav">
           <Nav className="mx-auto nav-links">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/products">Products</Nav.Link>
-            <Nav.Link href="/services">Services</Nav.Link>
-            <Nav.Link href="/rentals">Rentals</Nav.Link>
-            <Nav.Link href="/About">About</Nav.Link>
-            <Nav.Link href="/contact">Contact</Nav.Link>
+            <Nav.Link onClick={() => { navigate("/"); setExpanded(false); }}>
+              Home
+            </Nav.Link>
+            <Nav.Link onClick={() => { navigate("/products"); setExpanded(false); }}>
+              Products
+            </Nav.Link>
+            <Nav.Link onClick={() => { navigate("/services"); setExpanded(false); }}>
+              Services
+            </Nav.Link>
+            <Nav.Link onClick={() => { navigate("/rentals"); setExpanded(false); }}>
+              Rentals
+            </Nav.Link>
+            <Nav.Link onClick={() => { navigate("/about"); setExpanded(false); }}>
+              About
+            </Nav.Link>
+            <Nav.Link onClick={() => { navigate("/contact"); setExpanded(false); }}>
+              Contact
+            </Nav.Link>
           </Nav>
 
           {/* SEARCH */}
@@ -131,7 +159,11 @@ const Bar = () => {
                 onKeyDown={handleKeyDown}
               />
               <InputGroup.Text>
-                {loading ? <Spinner animation="border" size="sm" /> : <i className="bi bi-search"></i>}
+                {loading ? (
+                  <Spinner animation="border" size="sm" />
+                ) : (
+                  <i className="bi bi-search"></i>
+                )}
               </InputGroup.Text>
             </InputGroup>
 
@@ -166,13 +198,13 @@ const Bar = () => {
                       onClick={() => handleSelect(item)}
                       dangerouslySetInnerHTML={{
                         __html: `
-                        <img src="${item.images[0]}" />
-                        <div>
-                          <h6>${highlight(item.name)}</h6>
-                          <small>SKU: ${highlight(item.sku)}</small>
-                          <p>${highlight(item.description.slice(0, 40))}...</p>
-                        </div>
-                      `,
+                          <img src="${item.images[0]}" />
+                          <div>
+                            <h6>${highlight(item.name)}</h6>
+                            <small>SKU: ${highlight(item.sku)}</small>
+                            <p>${highlight(item.description.slice(0, 40))}...</p>
+                          </div>
+                        `,
                       }}
                     />
                   ))}

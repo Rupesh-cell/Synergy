@@ -3,7 +3,7 @@ const services = [
     id: "commercial-diving-equipment",
     title: "Commercial Diving Equipment",
     image:
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80",
+      "https://www.smp-ltd.com/media/magefan_blog/essential-commercial-diving-equipment.jpg",
     short:
       "Professional-grade equipment for offshore and industrial diving operations.",
     description:
@@ -19,7 +19,7 @@ const services = [
     id: "underwater-tools-accessories",
     title: "Underwater Tools & Accessories",
     image:
-      "https://images.unsplash.com/photo-1600679472829-3044539ce8ed?auto=format&fit=crop&w=1600&q=80",
+      "https://www.csunitec.com/sites/default/files/styles/thumbnail_width_500/public/images/product_category/rov_subsea_550x550_0.jpg?itok=aqMaaFpd",
     short:
       "Reliable underwater cutting tools, lights, and accessories for every mission.",
     description:
@@ -35,7 +35,7 @@ const services = [
     id: "diving-compressors-systems",
     title: "Diving Compressors & Systems",
     image:
-      "https://images.unsplash.com/photo-1611095564985-89765398121e?auto=format&fit=crop&w=1600&q=80",
+      "https://m.media-amazon.com/images/I/81cYb92yV9L.jpg",
     short:
       "High-performance compressors and air supply systems for commercial use.",
     description:
@@ -51,7 +51,7 @@ const services = [
     id: "inspection-survey-equipment",
     title: "Inspection & Survey Equipment",
     image:
-      "https://images.unsplash.com/photo-1618477462146-8cc64d6f9b5a?auto=format&fit=crop&w=1600&q=80",
+      "https://imc-shipmanagement.com/wp-content/uploads/2018/06/survey-mobile-banner.jpg",
     short:
       "ROVs, cameras, and sonar tools for underwater inspection and surveys.",
     description:
@@ -67,7 +67,7 @@ const services = [
     id: "diving-suits-helmets",
     title: "Diving Suits & Helmets",
     image:
-      "https://images.unsplash.com/photo-1601933470928-cdb30cce3b59?auto=format&fit=crop&w=1600&q=80",
+      "https://www.scuba.com/blog/wp-content/uploads/2018/05/shutterstock_721276657.jpg",
     short:
       "Surface-supplied helmets and suits engineered for safety and endurance.",
     description:
@@ -83,7 +83,7 @@ const services = [
     id: "maintenance-servicing",
     title: "Maintenance & Servicing",
     image:
-      "https://images.unsplash.com/photo-1581092160607-ee67c1f5b9d1?auto=format&fit=crop&w=1600&q=80",
+      "https://th.bing.com/th/id/R.638c83d6bb9cb48fef3f9b6f18670b50?rik=v9iQG69%2f7C2b4A&pid=ImgRaw&r=0",
     short:
       "Certified servicing and inspections to ensure maximum equipment reliability.",
     description:

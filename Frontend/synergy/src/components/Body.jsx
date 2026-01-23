@@ -8,8 +8,8 @@ import "../scss/body.scss";
 
 const Body = () => {
   return (
-    <section className="bod">
-      <div className="overlay"></div>
+    <section className="bod home-hero">
+      <div className="overlay" />
 
       <Container>
         <Row className="align-items-center justify-content-center text-center">
