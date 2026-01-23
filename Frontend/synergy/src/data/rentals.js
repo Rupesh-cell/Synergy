@@ -3,7 +3,7 @@ const rentals = [
     id: "commercial-diving-systems",
     title: "Commercial Diving Systems",
     image:
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80",
+      "https://www.smp-ltd.com/media/magefan_blog/containerised-ddc-1.jpg",
     short:
       "Complete surface-supplied diving systems available for short and long-term rental.",
     description:
@@ -19,7 +19,7 @@ const rentals = [
     id: "diving-compressors",
     title: "Diving Compressors",
     image:
-      "https://images.unsplash.com/photo-1611095564985-89765398121e?auto=format&fit=crop&w=1600&q=80",
+      "https://www.draeger.com/Media/Content/Products/Slideshow/mobile-bauer-compressors-high-pressure-breathing-gas-compressors-3-2-D-24189-2020.jpg",
     short:
       "High-pressure breathing air compressors for offshore and industrial operations.",
     description:
@@ -35,7 +35,7 @@ const rentals = [
     id: "underwater-tools",
     title: "Underwater Tools",
     image:
-      "https://images.unsplash.com/photo-1600679472829-3044539ce8ed?auto=format&fit=crop&w=1600&q=80",
+      "https://ronixtools.com/en/blog/wp-content/uploads/2021/12/7.webp",
     short:
       "Hydraulic and pneumatic underwater tools for cutting, drilling, and welding.",
     description:
@@ -50,8 +50,8 @@ const rentals = [
   {
     id: "rov-systems",
     title: "ROV Systems",
-    image:
-      "https://images.unsplash.com/photo-1618477462146-8cc64d6f9b5a?auto=format&fit=crop&w=1600&q=80",
+    image:"https://img.nauticexpo.com/images_ne/photo-g/44514-16562793.jpg",
+
     short:
       "Inspection-class ROVs for underwater surveys and inspections.",
     description:
@@ -67,7 +67,7 @@ const rentals = [
     id: "diving-suits-helmets",
     title: "Diving Suits & Helmets",
     image:
-      "https://images.unsplash.com/photo-1601933470928-cdb30cce3b59?auto=format&fit=crop&w=1600&q=80",
+      "https://www.stapem-offshore.com/wp-content/uploads/2019/01/Diving-equipment-07.jpg",
     short:
       "Commercial diving helmets and suits for safe and comfortable operations.",
     description:
@@ -83,7 +83,7 @@ const rentals = [
     id: "inspection-equipment",
     title: "Inspection Equipment",
     image:
-      "https://images.unsplash.com/photo-1600679472829-3044539ce8ed?auto=format&fit=crop&w=1600&q=80",
+      "https://www.uniquegroup.com/wp-content/uploads/2022/08/030309245083.jpg",
     short:
       "Underwater cameras, sonar, and NDT tools for inspections and surveys.",
     description:

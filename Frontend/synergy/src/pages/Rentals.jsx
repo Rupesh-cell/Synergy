@@ -5,13 +5,13 @@ import { useNavigate } from "react-router-dom";
 import rentals from "../data/rentals";
 import "../scss/rentals.scss";
 import Bar from "../components/Bar";
+import Footer from "../components/Footer";
 
 const Rentals = () => {
   const navigate = useNavigate();
 
   return (
     <>
-    <Bar/>
     <section className="rentals-section">
       <Container>
         <motion.h2

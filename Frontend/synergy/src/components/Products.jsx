@@ -14,10 +14,15 @@ const Products = () => {
 
   return (
     <>
-
       <section className="products-page">
         <Container>
-          <h2 className="section-title text-center mb-4">Our Products</h2>
+          <div className="products-header">
+            <h2>Our Products</h2>
+            <p>
+              Precision-engineered diving equipment and subsea solutions built
+              for extreme underwater environments.
+            </p>
+          </div>
 
           <Row>
             {paginatedProducts.map((item) => (
@@ -26,13 +31,10 @@ const Products = () => {
                   <Card.Img variant="top" src={item.images[0]} />
                   <Card.Body>
                     <Card.Title>{item.name}</Card.Title>
+                    <Card.Text>{item.description.slice(0, 80)}...</Card.Text>
+
                     <Card.Text>
-                      {item.description.slice(0, 80)}...
-                      
-                    </Card.Text>
-                   
-                    <Card.Text>
-                       <small className="sku">SKU: {item.sku}</small>
+                      <small className="sku">SKU: {item.sku}</small>
                     </Card.Text>
                     <Button
                       as={Link}
@@ -61,8 +63,6 @@ const Products = () => {
           </div>
         </Container>
       </section>
-
-     
     </>
   );
 };

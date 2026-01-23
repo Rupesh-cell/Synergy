@@ -1,14 +1,14 @@
 import React from "react";
 import PageTransition from "../components/PageTransition";
 import Bar from "../components/Bar";
-import Services from "../components/Services";
+import About from "../components/About";
 import Footer from "../components/Footer";
 
 const ServicesPage = () => {
   return (
     <PageTransition>
       <Bar />
-      <Services />
+      <About />
       <Footer />
     </PageTransition>
   );
