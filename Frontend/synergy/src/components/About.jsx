@@ -3,7 +3,9 @@ import { motion } from "framer-motion";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import AboutStat from "./AboutStat"; // New component for stats/highlights
+import { useNavigate } from "react-router-dom";
+import AboutStat from "./AboutStat";
+import PageHeading from "./PageHeading";
 import "../scss/about.scss";
 
 const stats = [
@@ -13,9 +15,13 @@ const stats = [
 ];
 
 const About = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="about-section">
       <Container>
+        <PageHeading eyebrow="Who We Are" title="About Synergy" />
+
         <Row className="align-items-center">
           {/* IMAGE */}
           <Col md={6}>
@@ -43,13 +49,12 @@ const About = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2>About Synergy</h2>
               <p>
                 Synergy has been a leading provider of professional diving
                 equipment and solutions since 2008. From commercial diving to
                 offshore operations, we deliver safety, reliability, and
-                innovation. Our state-of-the-art equipment ensures every dive
-                is efficient, safe, and successful.
+                innovation. Our state-of-the-art equipment ensures every dive is
+                efficient, safe, and successful.
               </p>
               <p>
                 Committed to quality and customer satisfaction, we support
@@ -57,14 +62,28 @@ const About = () => {
                 and services.
               </p>
 
-              {/* STATS COMPONENTS */}
+              {/* STATS */}
               <Row className="about-stats mt-4">
                 {stats.map((stat) => (
                   <Col key={stat.id} xs={4}>
-                    <AboutStat number={stat.number} label={stat.label} icon={stat.icon} />
+                    <AboutStat
+                      number={stat.number}
+                      label={stat.label}
+                      icon={stat.icon}
+                    />
                   </Col>
                 ))}
               </Row>
+
+              {/* BUTTON */}
+              <motion.button
+                className="about-btn mt-4"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => navigate("/about")}
+              >
+                Learn More About Us →
+              </motion.button>
             </motion.div>
           </Col>
         </Row>

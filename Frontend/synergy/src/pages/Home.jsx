@@ -7,6 +7,7 @@ import Services from "../components/Services";
 import About from "../components/About";
 import Rentals from "../pages/Rentals";
 import Contact from "../components/Contact";
+import BrandsSection from "../components/BrandsSection";
 import Footer from "../components/Footer";
 
 const Home = () => {
@@ -16,7 +17,7 @@ const Home = () => {
       <Body />
       <FeaturedItems />
       <Services />
-      <Rentals />
+      <BrandsSection/>
       <About />
       <Contact />
       <Footer />

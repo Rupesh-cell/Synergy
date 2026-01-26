@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import products from "../data/products";
+import PageHeading from "./PageHeading";
 import "../scss/featuredItems.scss";
 
 const FeaturedItems = () => {
@@ -15,7 +16,8 @@ const FeaturedItems = () => {
   return (
     <section className="featured-items-section">
       <Container>
-        <h2 className="section-title text-center mb-4">Featured Products</h2>
+        <PageHeading eyebrow="Explore Featured" title="Featured Products" />
+
         <Row>
           {featuredProducts.map((product) => (
             <Col md={3} sm={6} xs={12} key={product.id} className="mb-4">

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import products from "../data/products";
+import PageHeading from "./PageHeading";
 import "../scss/products.scss";
 
 const Products = () => {
@@ -17,7 +18,8 @@ const Products = () => {
       <section className="products-page">
         <Container>
           <div className="products-header">
-            <h2>Our Products</h2>
+            <PageHeading eyebrow="Explore Equipment" title="Our Products" />
+
             <p>
               Precision-engineered diving equipment and subsea solutions built
               for extreme underwater environments.

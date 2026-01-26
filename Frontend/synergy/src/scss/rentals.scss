@@ -3,79 +3,88 @@
   background: #f8fbff;
 
   .section-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 800;
     color: #002b45;
-    margin-bottom: 1.5rem;
   }
 }
 
-.rental-card {
+.rental-category-card {
   position: relative;
   height: 380px;
-  border-radius: 16px;
+  border-radius: 18px;
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 0 10px 26px rgba(0, 50, 90, 0.12);
+  box-shadow: 0 12px 28px rgba(0, 50, 90, 0.12);
   transition: all 0.35s ease;
-  background: #fff;
-  display: flex;
-  flex-direction: column;
+  background: #000;
+
+  &:hover .rental-category-img {
+    transform: scale(1.1);
+  }
+
+  &:hover .rental-category-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 20, 40, 0.3),
+      rgba(0, 20, 40, 0.85)
+    );
+  }
 }
 
-/* IMAGE AREA */
-.rental-bg {
+.rental-category-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: calc(100% - 130px);
-  background-size: cover;
-  background-position: center;
-  transition: transform 0.5s ease;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
 }
 
-.rental-card:hover .rental-bg {
-  transform: scale(1.08);
+.rental-category-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 20, 40, 0.15),
+    rgba(0, 20, 40, 0.7)
+  );
+  transition: background 0.4s ease;
+  z-index: 1;
 }
 
-/* CONTENT AREA */
-.rental-content {
-  height: 130px;
-  padding: 1rem;
-  background-color: #0096c7;
+.rental-category-content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1.3rem;
   color: #fff;
+  z-index: 2;
 
   h4 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 0.4rem;
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 0.35rem;
   }
 
   p {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     opacity: 0.9;
     margin-bottom: 0.6rem;
-    line-height: 1.5;
   }
 
-  .rental-link {
+  span {
     font-size: 0.8rem;
     font-weight: 700;
-    color: #ffffff;
     letter-spacing: 0.4px;
     text-transform: uppercase;
+    color: #90e0ef;
   }
 }
 
-/* Mobile */
+/* Mobile polish */
 @media (max-width: 768px) {
-  .rental-card {
-    height: 340px;
-  }
-
-  .rental-bg {
-    height: calc(100% - 120px);
-  }
-
-  .rental-content {
-    height: 120px;
+  .rental-category-card {
+    height: 300px;
   }
 }

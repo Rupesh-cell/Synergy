@@ -6,7 +6,8 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import SectionWrapper from "./SectionWrapper";
-import ContactInfoCard from "./ContactInfoCard"; // New reusable component
+import ContactInfoCard from "./ContactInfoCard";
+import PageHeading from "./PageHeading";
 import "../scss/contact.scss";
 
 const contactInfo = [
@@ -21,16 +22,7 @@ const Contact = () => {
       <section className="contact-section">
         <Container>
           {/* HEADER */}
-          <motion.div
-            className="contact-header"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-          >
-            <h2>Contact Us</h2>
-            <p>Reach out for inquiries, quotes, or support. We’re here to help!</p>
-          </motion.div>
+          <PageHeading eyebrow="Let’s Talk" title="Contact Us" />
 
           <Row className="contact-body mt-4">
             {/* FORM */}
@@ -55,7 +47,11 @@ const Contact = () => {
 
                   <Form.Group className="mb-3">
                     <Form.Label>Message</Form.Label>
-                    <Form.Control as="textarea" rows={4} placeholder="Your message..." />
+                    <Form.Control
+                      as="textarea"
+                      rows={4}
+                      placeholder="Your message..."
+                    />
                   </Form.Group>
 
                   <Button className="btn submit-btn mt-2">Send Message</Button>

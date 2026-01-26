@@ -1,27 +1,22 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Badge } from "react-bootstrap";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
 import services from "../data/services";
+import PageHeading from "./PageHeading";
 import "../scss/services.scss";
 
 const Services = () => {
-  const navigate = useNavigate();
-
   return (
-    <section className="services-section">
+    <section className="services-page">
       <Container>
-        <motion.h2
-          className="section-title text-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          Our Services
-        </motion.h2>
+        <PageHeading eyebrow="What We Do" title="Our Services" />
 
-        <Row className="g-4 mt-2">
+        <p className="services-subtitle text-center">
+          End-to-end subsea solutions engineered for safety, performance, and
+          reliability.
+        </p>
+
+        <Row className="g-4 mt-4">
           {services.map((service, index) => (
             <Col lg={4} md={6} key={service.id}>
               <motion.div
@@ -30,20 +25,29 @@ const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.03 }}
-                onClick={() => navigate(`/services/${service.id}`)}
+                whileHover={{ y: -8 }}
               >
-                {/* Replace background div with an actual image */}
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="service-card-img"
-                />
+                {/* IMAGE */}
+                <div className="service-img-wrap">
+                  <img src={service.image} alt={service.title} />
+                  <div className="service-overlay" />
+                  <Badge className="service-badge"></Badge>
+                </div>
 
-                <div className="service-content">
+                {/* CONTENT */}
+                <div className="service-body">
                   <h4>{service.title}</h4>
-                  <p>{service.short}</p>
-                  <span className="service-link">Explore →</span>
+                  <p className="service-desc">{service.short}</p>
+
+                  <ul className="service-features">
+                    {service.features?.slice(0, 3).map((item, i) => (
+                      <li key={i}>✔ {item}</li>
+                    ))}
+                  </ul>
+
+                  <div className="service-footer">
+                    <span className="service-status">Available Worldwide</span>
+                  </div>
                 </div>
               </motion.div>
             </Col>
