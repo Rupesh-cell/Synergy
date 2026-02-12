@@ -12,8 +12,8 @@ import "../scss/contact.scss";
 
 const contactInfo = [
   { icon: "📍", title: "Location", desc: "Dubai, UAE" },
-  { icon: "📞", title: "Phone", desc: "+971 55 123 4567" },
-  { icon: "📧", title: "Email", desc: "info@synergydiving.com" },
+  { icon: "📞", title: "Phone", desc: "+97xxxxxxxx" },
+  { icon: "📧", title: "Email", desc: "xxxxxxxxxxx" },
 ];
 
 const Contact = () => {

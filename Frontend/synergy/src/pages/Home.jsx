@@ -9,7 +9,7 @@ import Rentals from "../pages/Rentals";
 import Contact from "../components/Contact";
 import BrandsSection from "../components/BrandsSection";
 import Footer from "../components/Footer";
-
+import AIChatWidget from "../components/AIChatWidget";
 const Home = () => {
   return (
     <PageTransition>
@@ -20,6 +20,7 @@ const Home = () => {
       <BrandsSection/>
       <About />
       <Contact />
+      <AIChatWidget/>
       <Footer />
     </PageTransition>
   );
