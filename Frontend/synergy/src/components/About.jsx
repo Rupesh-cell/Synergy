@@ -20,7 +20,7 @@ const About = () => {
   return (
     <section className="about-section">
       <Container>
-        <PageHeading eyebrow="Who We Are" title="About Synergy" />
+        <PageHeading eyebrow="Who We Are" title="About SEATEK" />
 
         <Row className="align-items-center">
           {/* IMAGE */}
@@ -34,7 +34,7 @@ const About = () => {
             >
               <img
                 src="https://th.bing.com/th/id/R.d2215000530f1369b4332d466f0504d5?rik=CbUiZ4v4ISwi3Q&pid=ImgRaw&r=0"
-                alt="About Synergy"
+                alt="About SEATEK"
                 className="about-img"
               />
             </motion.div>
@@ -50,7 +50,7 @@ const About = () => {
               viewport={{ once: true }}
             >
               <p>
-                Synergy has been a leading provider of professional diving
+                SEATEK has been a leading provider of professional diving
                 equipment and solutions since 2008. From commercial diving to
                 offshore operations, we deliver safety, reliability, and
                 innovation. Our state-of-the-art equipment ensures every dive is

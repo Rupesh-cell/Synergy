@@ -119,7 +119,7 @@ const Bar = () => {
     >
       <Container ref={containerRef}>
         <Navbar.Brand onClick={() => { navigate("/"); setExpanded(false); }}>
-          SYNERGY
+          SEATEK
         </Navbar.Brand>
 
         <Navbar.Toggle onClick={() => setExpanded(!expanded)} />

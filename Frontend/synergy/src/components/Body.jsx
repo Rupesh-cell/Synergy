@@ -29,7 +29,7 @@ const Body = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.1, delay: 0.2 }}
             >
-              SYNERGY
+              SEATEK
             </motion.h1>
 
             <motion.p
@@ -38,7 +38,7 @@ const Body = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.4 }}
             >
-              Since 2008, Synergy has delivered world-class diving equipment and
+              Since 2008, SEATEK has delivered world-class diving equipment and
               subsea solutions — engineered for safety, precision, and
               performance in the harshest underwater environments.
             </motion.p>

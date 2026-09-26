@@ -91,7 +91,7 @@ const AboutPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9 }}
           >
-            <h1>About Synergy</h1>
+            <h1>About Seatek</h1>
             <p>
               Engineering excellence beneath the surface — delivering safety,
               reliability, and innovation to the global diving industry since
@@ -108,7 +108,7 @@ const AboutPage = () => {
             <Col md={6}>
               <motion.img
                 src="https://images.unsplash.com/photo-1529473814998-077b4fec6770?auto=format&fit=crop&w=1200&q=80"
-                alt="Synergy Operations"
+                alt="SEATEK Operations"
                 className="story-img"
                 initial={{ opacity: 0, x: -40 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -127,7 +127,7 @@ const AboutPage = () => {
               >
                 <h2>Our Story</h2>
                 <p>
-                  Founded in 2008, Synergy began as a specialized provider of
+                  Founded in 2008, SEATEK began as a specialized provider of
                   commercial diving equipment and subsea solutions for offshore
                   energy projects. Today, we serve clients across marine
                   construction, oil & gas, ports, defense, and underwater
@@ -167,7 +167,7 @@ const AboutPage = () => {
                 viewport={{ once: true }}
               >
                 <p>
-                  Synergy is a privately owned engineering and manufacturing
+                  SEATEK is a privately owned engineering and manufacturing
                   company, led by industry professionals with decades of
                   experience in commercial diving systems and subsea
                   technologies.

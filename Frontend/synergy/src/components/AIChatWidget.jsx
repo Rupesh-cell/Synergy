@@ -11,7 +11,7 @@ const AIChatWidget = () => {
     {
       role: "assistant",
       content:
-        "👋 Hi! I’m Synergy AI Assistant. Tell me what equipment or rental you need — I’ll recommend the best options.",
+        "👋 Hi! I’m Seatek AI Assistant. Tell me what equipment or rental you need — I’ll recommend the best options.",
     },
   ]);
 

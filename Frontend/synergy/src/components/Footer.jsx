@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="footer-top container">
         {/* LOGO & ABOUT */}
         <div className="footer-section about">
-          <h3>Synergy Diving</h3>
+          <h3>SEATEK Diving</h3>
           <p>
             Leading provider of professional diving equipment and solutions.
             Delivering safety, reliability, and innovation since 2008.
@@ -58,7 +58,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} Synergy Diving Equipment Trading. All Rights Reserved.</p>
+        <p>© {new Date().getFullYear()} SEATEK Diving Equipment Trading. All Rights Reserved.</p>
       </div>
     </footer>
   );
